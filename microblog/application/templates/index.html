@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+    <h1>Hello, {{ current_user.username }}!</h1>
+    {% if form %}
+            {{ wtf.quick_form(form) }}
+    {%  endif %}
+    {% include '_posts.html' %}
+{% endblock %}
