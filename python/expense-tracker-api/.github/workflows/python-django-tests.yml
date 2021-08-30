@@ -1,4 +1,4 @@
-name: Python Unittest
+name: Python Django Tests
 
 on: [push]
 
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: [3.8.1]
 
     steps:
       - uses: actions/checkout@v2
@@ -21,6 +21,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install
-      - name: Test with unittest
+      - name: Test with python manage.py
         run: |
-          python -m unittest
+          python manage.py test
